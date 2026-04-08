@@ -1,0 +1,118 @@
+:root {
+    --bg-color: #FFFFFD;
+    --brand-color: #0b4d2a;
+    --nav-link-hover: #0b4d2a46;
+    --her0-bvg-color: #F9EFE6;
+    --shop-green: #004d3d;
+    /* Il verde scuro del brand Shopcart */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+}
+
+.search-input {
+    background-color: #f3f4f6;
+    border: none;
+    padding-right: 2.5rem;
+    min-width: 250px;
+}
+
+.search-input:focus {
+    background-color: #e9ecef;
+    box-shadow: none;
+}
+
+.search-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+
+.brand-color {
+    color: var(--brand-color);
+}
+
+header nav .nav-link:hover {
+    color: var(--brand-color) !important;
+    font-weight: 700 !important;
+    text-shadow: 1px 1px 10px #fff, 1px 1px 10px var(--nav-link-hover) !important;
+}
+
+#hero-section>div.row {
+    background-color: var(--her0-bvg-color);
+}
+
+#hero-section h1 {
+    color: var(--brand-color);
+}
+
+
+.product-card {
+    border: none;
+    border-radius: 12px;
+    transition: transform 0.2s;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.img-container {
+    background-color: #f5f6f6;
+    border-radius: 12px;
+    position: relative;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 250px;
+}
+
+.wishlist-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: white;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.btn-add-cart {
+    border: 2px solid var(--shop-green);
+    color: var(--shop-green);
+    border-radius: 20px;
+    padding: 6px 20px;
+    font-weight: 600;
+    background: transparent;
+}
+
+.btn-add-cart:hover {
+    background-color: var(--shop-green);
+    color: white;
+}
+
+.price {
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.star-rating {
+    color: #28a745;
+    font-size: 0.8rem;
+}

@@ -9,6 +9,10 @@
     <!------- Bootstrap cdn ------->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
 
+    <!--=============== Swiper.js ===============-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+
+
     <!-------Custom style ------->
     <link rel="stylesheet" href="./assets/css/style.css">
 
@@ -17,8 +21,341 @@
 
 <body>
 
+    <!------- Header ------->
+    <header>
+        <!------- Header Top ------->
+        <div class="py-2 text-white" style="background-color: #003d29; font-size: 0.85rem;">
+            <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+
+                <div class="d-flex align-items-center gap-2">
+                    <i class="bi bi-telephone"></i>
+                    <span>+001234567890</span>
+                </div>
+
+                <div class="text-center d-none d-sm-block">
+                    Get 50% Off On Selected Items | <a href="#" class="text-white fw-semibold text-decoration-none">Shop
+                        Now</a>
+                </div>
+
+                <div class="d-flex align-items-center gap-4">
+
+                    <div class="dropdown">
+                        <a class="text-white text-decoration-none dropdown-toggle" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Eng
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end shadow-sm">
+                            <li><a class="dropdown-item" href="#">Ita</a></li>
+                            <li><a class="dropdown-item" href="#">Fra</a></li>
+                            <li><a class="dropdown-item" href="#">Esp</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="dropdown">
+                        <a class="text-white text-decoration-none dropdown-toggle" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Location
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end shadow-sm">
+                            <li><a class="dropdown-item" href="#">Roma</a></li>
+                            <li><a class="dropdown-item" href="#">Milano</a></li>
+                            <li><a class="dropdown-item" href="#">Napoli</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!------- Navbar ------->
+        <nav class="navbar navbar-expand-lg bg-white py-3 ">
+            <div class="container">
+
+                <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+                    <div class="position-relative brand-color">
+                        <i class="bi bi-cart3 fs-3"></i>
+                        <span
+                            class="position-absolute top-0 start-50 translate-middle p-1 bg-warning border border-light rounded-circle"
+                            style="width: 10px; height: 10px;"></span>
+                    </div>
+                    <span class="fw-bold fs-4 brand-color">Shopcart</span>
+                </a>
+
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarMain">
+
+                    <ul class="navbar-nav mx-auto mb-2 mb-lg-0 fw-medium gap-3">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-dark" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Categories
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Electronics</a></li>
+                                <li><a class="dropdown-item" href="#">Fashion</a></li>
+                                <li><a class="dropdown-item" href="#">Home</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="#">Deals</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="#">What's New</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="#">Delivery</a>
+                        </li>
+                    </ul>
+
+                    <div class="d-flex flex-column flex-lg-row align-items-lg-center gap-4 mt-3 mt-lg-0">
+
+                        <form class="position-relative" role="search">
+                            <input class="form-control rounded-pill search-input py-2" type="search"
+                                placeholder="Search Product" aria-label="Search">
+                            <i class="bi bi-search search-icon text-muted"></i>
+                        </form>
+
+                        <div class="d-flex gap-4 fw-medium">
+                            <a href="#" class="text-dark text-decoration-none d-flex align-items-center gap-2">
+                                <i class="fa-regular fa-user"></i>
+                                <span>Account</span>
+                            </a>
+                            <a href="#" class="text-dark text-decoration-none d-flex align-items-center gap-2">
+                                <i class="fa-solid fa-cart-shopping"></i>
+                                <span>Cart</span>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!------- Main ------->
+    <main>
+        <!------- Hero ------->
+        <section id="hero-section" class="container">
+            <div class="row flex-column-reverse flex-lg-row-reverse align-items-center g-5">
+                <div class="col-10 col-sm-8 col-lg-6">
+                    <img src="./assets/images/hero.png" class="d-block mx-lg-auto img-fluid" alt="Hero image">
+                </div>
+                <div class="col-lg-6">
+                    <h1 class="display-6 fw-bold lh-1 mt-4 mx-3 ">Grab up to 50% Off On Selected Items!</h1>
+                </div>
+            </div>
+        </section>
+
+        <!------- Products Container ------->
+        <section class="container my-5" id="products-container">
+            <h3 class="title mb-3 fw-medium">Last Offers</h3>
+
+            <!------- Swiper ------->
+            <div class="swiper trending-swiper mt-2">
+                <div class="swiper-wrapper">
+                    <!------- Card ------->
+                    <div class="swiper-slide">
+                        <div class="card product-card h-100 bg-transparent">
+                            <div class="img-container">
+                                <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
+                                <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGhvbmV8ZW58MHx8MHx8fDA%3D"
+                                    class="img-fluid" alt="AirPods Max">
+                            </div>
+
+                            <div class="card-body px-0">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <h5 class="card-title fw-bold mb-0">AirPods Max</h5>
+                                    <span class="price">$559.00</span>
+                                </div>
+                                <p class="card-text text-muted small mb-2">A perfect balance of high-fidelity audio</p>
+
+                                <div class="mb-3">
+                                    <span class="star-rating">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </span>
+                                    <span class="reviews-count ms-1">(121)</span>
+                                </div>
+
+                                <button class="btn btn-add-cart">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!------- Card ------->
+                    <div class="swiper-slide">
+                        <div class="card product-card h-100 bg-transparent">
+                            <div class="img-container">
+                                <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
+                                <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGhvbmV8ZW58MHx8MHx8fDA%3D"
+                                    class="img-fluid" alt="AirPods Max">
+                            </div>
+
+                            <div class="card-body px-0">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <h5 class="card-title fw-bold mb-0">AirPods Max</h5>
+                                    <span class="price">$559.00</span>
+                                </div>
+                                <p class="card-text text-muted small mb-2">A perfect balance of high-fidelity audio</p>
+
+                                <div class="mb-3">
+                                    <span class="star-rating">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </span>
+                                    <span class="reviews-count ms-1">(121)</span>
+                                </div>
+
+                                <button class="btn btn-add-cart">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!------- Card ------->
+                    <div class="swiper-slide">
+                        <div class="card product-card h-100 bg-transparent">
+                            <div class="img-container">
+                                <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
+                                <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGhvbmV8ZW58MHx8MHx8fDA%3D"
+                                    class="img-fluid" alt="AirPods Max">
+                            </div>
+
+                            <div class="card-body px-0">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <h5 class="card-title fw-bold mb-0">AirPods Max</h5>
+                                    <span class="price">$559.00</span>
+                                </div>
+                                <p class="card-text text-muted small mb-2">A perfect balance of high-fidelity audio</p>
+
+                                <div class="mb-3">
+                                    <span class="star-rating">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </span>
+                                    <span class="reviews-count ms-1">(121)</span>
+                                </div>
+
+                                <button class="btn btn-add-cart">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!------- Card ------->
+                    <div class="swiper-slide">
+                        <div class="card product-card h-100 bg-transparent">
+                            <div class="img-container">
+                                <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
+                                <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGhvbmV8ZW58MHx8MHx8fDA%3D"
+                                    class="img-fluid" alt="AirPods Max">
+                            </div>
+
+                            <div class="card-body px-0">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <h5 class="card-title fw-bold mb-0">AirPods Max</h5>
+                                    <span class="price">$559.00</span>
+                                </div>
+                                <p class="card-text text-muted small mb-2">A perfect balance of high-fidelity audio</p>
+
+                                <div class="mb-3">
+                                    <span class="star-rating">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </span>
+                                    <span class="reviews-count ms-1">(121)</span>
+                                </div>
+
+                                <button class="btn btn-add-cart">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!------- Card ------->
+                    <div class="swiper-slide">
+                        <div class="card product-card h-100 bg-transparent">
+                            <div class="img-container">
+                                <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
+                                <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGhvbmV8ZW58MHx8MHx8fDA%3D"
+                                    class="img-fluid" alt="AirPods Max">
+                            </div>
+
+                            <div class="card-body px-0">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <h5 class="card-title fw-bold mb-0">AirPods Max</h5>
+                                    <span class="price">$559.00</span>
+                                </div>
+                                <p class="card-text text-muted small mb-2">A perfect balance of high-fidelity audio</p>
+
+                                <div class="mb-3">
+                                    <span class="star-rating">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </span>
+                                    <span class="reviews-count ms-1">(121)</span>
+                                </div>
+
+                                <button class="btn btn-add-cart">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!------- Card ------->
+                    <div class="swiper-slide">
+                        <div class="card product-card h-100 bg-transparent">
+                            <div class="img-container">
+                                <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
+                                <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGhvbmV8ZW58MHx8MHx8fDA%3D"
+                                    class="img-fluid" alt="AirPods Max">
+                            </div>
+
+                            <div class="card-body px-0">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <h5 class="card-title fw-bold mb-0">AirPods Max</h5>
+                                    <span class="price">$559.00</span>
+                                </div>
+                                <p class="card-text text-muted small mb-2">A perfect balance of high-fidelity audio</p>
+
+                                <div class="mb-3">
+                                    <span class="star-rating">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </span>
+                                    <span class="reviews-count ms-1">(121)</span>
+                                </div>
+
+                                <button class="btn btn-add-cart">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-button-prev d-none d-lg-flex"></div>
+                <div class="swiper-button-next d-none d-lg-flex"></div>
+
+            </div>
+        </section>
+    </main>
     <!------- Bootstrap script ------->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!------- Swiper js ------->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
 
     <!------- Font awesome ------->
     <script src="https://kit.fontawesome.com/49727d7509.js" crossorigin="anonymous"></script>
