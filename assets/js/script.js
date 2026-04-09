@@ -39,9 +39,7 @@ const initializeSwiper = () =>{
 
 }
 
-
 const spinner = document.getElementById('spinner')
-
 
 const getProducts = async () => {
     spinner.classList.remove('d-none')
@@ -106,6 +104,7 @@ const renderProducts = async () => {
     console.log(products)
     const random = products.sort(() => Math.random() - 0.5)
     initializeSwiper()
+    changeVisibility('#products-container')
     const str = products.reduce((acc, product) => {
         acc += createCard(product)
         return acc
@@ -167,5 +166,9 @@ const addToSaved = (node) =>{
 const addToCart = (node) =>{
     node.classList.toggle('added')
     node.textContent = node.classList.contains('added') ? 'Added' : 'Add to Cart'
+}
+
+const changeVisibility = (query) => {
+    document.querySelector(query).classList.toggle('d-none')
 }
 renderProducts()
