@@ -55,6 +55,7 @@ const getProducts = async () => {
         return await response.json()
     } catch (e) {
         console.error(e)
+        showToast(e, "danger")
     } finally {
 
         spinner.classList.add('d-none')
@@ -170,4 +171,25 @@ const addToCart = (node) => {
 const toggleVisibility = (query) => {
     document.querySelector(query).classList.toggle('d-none')
 }
+
+const showToast = (message, type) => {
+    document.querySelector('.toast-container').innerHTML += `
+        <div class="toast align-items-center text-bg-${type} border-0" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body">
+                    ${message}
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    `
+
+    var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+    var toastList = toastElList.map(function (toastEl) {
+        return new bootstrap.Toast(toastEl)
+    })
+    toastList.forEach(toast => toast.show())
+}
+
+
 renderProducts()
