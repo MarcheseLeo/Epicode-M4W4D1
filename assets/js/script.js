@@ -103,16 +103,14 @@ const renderProducts = async () => {
     const products = await getProducts()
     console.log(products)
     const random = products.sort(() => Math.random() - 0.5)
-    initializeSwiper()
-    changeVisibility('#products-container')
     const str = products.reduce((acc, product) => {
         acc += createCard(product)
         return acc
     }, ``)
 
-
-    console.log(random)
     appendCards(str)
+    initializeSwiper()
+    toggleVisibility('#products-container')
 }
 
 const createCard = (product) => {
@@ -168,7 +166,7 @@ const addToCart = (node) =>{
     node.textContent = node.classList.contains('added') ? 'Added' : 'Add to Cart'
 }
 
-const changeVisibility = (query) => {
+const toggleVisibility = (query) => {
     document.querySelector(query).classList.toggle('d-none')
 }
 renderProducts()
