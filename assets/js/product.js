@@ -35,7 +35,7 @@ const generateProductCard = (product) =>{
 
                 <div class="col-lg-6">
                     <div class="d-flex justify-content-end mb-2">
-                        <a href="/backoffice/edit-product/123"
+                        <a href="/backoffice.html?id=${product["_id"]}"
                             class="btn btn-outline-secondary btn-sm btn-admin-edit shadow-sm">
                             <i class="fa-solid fa-pencil"></i> Modifica
                         </a>
