@@ -1,0 +1,86 @@
+/* Hero section */
+#hero-section>div.row {
+    background-color: var(--hero-bg-color);
+}
+
+#hero-section h1 {
+    color: var(--brand-color);
+}
+
+/* Card */
+.product-card {
+    border: none;
+    border-radius: 12px;
+    transition: transform 0.2s;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.img-container {
+    background-color: var(--img-bg-color);
+    border-radius: 12px;
+    position: relative;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 250px;
+}
+
+.img-container .img-fluid {
+    max-height: 150px;
+}
+
+.wishlist-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: white;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.btn-add-cart {
+    border: 2px solid var(--shop-green);
+    color: var(--shop-green);
+    border-radius: 20px;
+    padding: 6px 20px;
+    font-weight: 600;
+    background: transparent;
+}
+
+.btn-add-cart:hover {
+    background-color: var(--shop-green);
+    color: white;
+}
+
+.price {
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.star-rating {
+    color: var(--star-color);
+    font-size: 0.8rem;
+}
+
+/* Swiper buttons */
+.swiper-button-next,
+.swiper-button-prev {
+    background-color: white;
+    width: 60px;
+    height: 60px;
+    padding: 10px;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+

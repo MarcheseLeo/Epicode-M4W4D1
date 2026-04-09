@@ -112,35 +112,36 @@ const renderProducts = async () => {
 const createCard = (product) => {
     return `
         <div class="swiper-slide">
-                        <div class="card product-card h-100 bg-transparent">
-                            <div class="img-container">
-                                <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
-                                <img src="${product.imageUrl}"
-                                    class="img-fluid" alt="">
-                            </div>
+            <div class="card product-card h-100 bg-transparent">    
+                <div class="img-container">
+                    <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
+                    <a href="./product.html?id=${product["_id"]}">
+                        <img src="${product.imageUrl}" class="img-fluid" alt="">
+                    </a>
+                </div>
 
-                            <div class="card-body px-0">
-                                <div class="d-flex justify-content-between align-items-start">
-                                    <h5 class="card-title text-truncate fw-bold mb-0">${product.name}</h5>
-                                    <span class="price">$${product.price}</span>
-                                </div>
-                                <p class="card-text text-muted text-truncate small mb-2">${product.description}</p>
-
-                                <div class="mb-3">
-                                    <span class="star-rating">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                    </span>
-                                    <span class="reviews-count ms-1">(121)</span>
-                                </div>
-
-                                <button class="btn btn-add-cart">Add to Cart</button>
-                            </div>
-                        </div>
+                <div class="card-body px-0">
+                    <div class="d-flex justify-content-between align-items-start">
+                        <h5 class="card-title text-truncate fw-bold mb-0">${product.name}</h5>
+                        <span class="price">$${product.price}</span>
                     </div>
+                    <p class="card-text text-muted text-truncate small mb-2">${product.description}</p>
+
+                    <div class="mb-3">
+                        <span class="star-rating">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </span>
+                        <span class="reviews-count ms-1">(121)</span>
+                    </div>
+
+                    <button class="btn btn-add-cart">Add to Cart</button>
+                </div>
+            </div>
+        </div>
     `
 }
 
