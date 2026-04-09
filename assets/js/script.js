@@ -1,41 +1,42 @@
 /*=================== Swiper Object initialization ===================*/
-let swiper 
+let swiper
 
-const initializeSwiper = () =>{
+const initializeSwiper = () => {
     swiper = new Swiper('.swiper', {
 
-    direction: 'horizontal',
-    loop: false,
-    watchSlidesProgress: false,
-    navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-    },
+        direction: 'horizontal',
+        loop: false,
+        watchSlidesProgress: false,
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        observer: true,
+        observeParents: true,
+        breakpoints: {
+            320: {
+                slidesPerView: 2.2,
+                spaceBetween: 15,
+                allowTouchMove: true,
+            },
 
-    breakpoints: {
-        320: {
-            slidesPerView: 2.2,
-            spaceBetween: 15,
-            allowTouchMove: true,
+            768: {
+                slidesPerView: 3.2,
+                spaceBetween: 15,
+                allowTouchMove: true,
+            },
+            1200: {
+                slidesPerView: 4.2,
+                spaceBetween: 15,
+                allowTouchMove: false,
+            },
+            1400: {
+                slidesPerView: 6.2,
+                spaceBetween: 15,
+                allowTouchMove: false,
+            },
         },
-
-        768: {
-            slidesPerView: 3.2,
-            spaceBetween: 15,
-            allowTouchMove: true,
-        },
-        1200: {
-            slidesPerView: 4.2,
-            spaceBetween: 15,
-            allowTouchMove: false,
-        },
-        1400: {
-            slidesPerView: 6.2,
-            spaceBetween: 15,
-            allowTouchMove: false,
-        },
-    },
-});
+    });
 
 }
 
@@ -154,14 +155,14 @@ const appendCards = (htmlStr) => {
     document.querySelector('#products-container .swiper-wrapper').innerHTML = htmlStr
 }
 
-const addToSaved = (node) =>{
+const addToSaved = (node) => {
     const icon = node.children[0]
     icon.classList.toggle('saved')
     icon.classList.toggle('fa-regular')
     icon.classList.toggle('fa-solid')
     console.log(icon.classList)
 }
-const addToCart = (node) =>{
+const addToCart = (node) => {
     node.classList.toggle('added')
     node.textContent = node.classList.contains('added') ? 'Added' : 'Add to Cart'
 }
