@@ -78,6 +78,10 @@ header nav .nav-link:hover {
     height: 250px;
 }
 
+.img-container .img-fluid{
+    max-height: 150px;
+}
+
 .wishlist-btn {
     position: absolute;
     top: 15px;
@@ -116,3 +120,4 @@ header nav .nav-link:hover {
     color: #28a745;
     font-size: 0.8rem;
 }
+
