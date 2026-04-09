@@ -1,5 +1,8 @@
 /*=================== Swiper Object initialization ===================*/
-const swiper = new Swiper('.swiper', {
+let swiper 
+
+const initializeSwiper = () =>{
+    swiper = new Swiper('.swiper', {
 
     direction: 'horizontal',
     loop: false,
@@ -33,6 +36,9 @@ const swiper = new Swiper('.swiper', {
         },
     },
 });
+
+}
+
 
 const spinner = document.getElementById('spinner')
 
@@ -99,6 +105,7 @@ const renderProducts = async () => {
     const products = await getProducts()
     console.log(products)
     const random = products.sort(() => Math.random() - 0.5)
+    initializeSwiper()
     const str = products.reduce((acc, product) => {
         acc += createCard(product)
         return acc
