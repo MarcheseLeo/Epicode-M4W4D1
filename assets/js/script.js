@@ -3,7 +3,7 @@ const swiper = new Swiper('.swiper', {
 
     direction: 'horizontal',
     loop: false,
-    watchSlidesProgress: true,
+    watchSlidesProgress: false,
     navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
@@ -50,10 +50,10 @@ const getProducts = async () => {
         return await response.json()
     } catch (e) {
         console.error(e)
-    }finally{
-        setTimeout(()=>{
-            spinner.classList.add('d-none')
-        },800)
+    } finally {
+
+        spinner.classList.add('d-none')
+
     }
 
 }
@@ -95,21 +95,21 @@ const updateProduct = async (product, id) => {
     }
 }
 
-const  renderProducts = async() =>{
+const renderProducts = async () => {
     const products = await getProducts()
     console.log(products)
-    const random = products.sort( ()=> Math.random()-0.5)
-    const str = products.reduce((acc, product) =>{
-        acc+= createCard(product)
+    const random = products.sort(() => Math.random() - 0.5)
+    const str = products.reduce((acc, product) => {
+        acc += createCard(product)
         return acc
     }, ``)
 
-    
+
     console.log(random)
     appendCards(str)
 }
 
-const createCard = (product) =>{
+const createCard = (product) => {
     return `
         <div class="swiper-slide">
                         <div class="card product-card h-100 bg-transparent">
@@ -144,7 +144,7 @@ const createCard = (product) =>{
     `
 }
 
-const appendCards = (htmlStr) =>{
+const appendCards = (htmlStr) => {
     document.querySelector('#products-container .swiper-wrapper').innerHTML = htmlStr
 }
 renderProducts()
