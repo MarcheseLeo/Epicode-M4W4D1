@@ -1,6 +1,7 @@
-/*=================== Swiper Object initialization ===================*/
+const spinner = document.getElementById('spinner')
 let swiper
 
+/*---- Swiper inizialization ----*/
 const initializeSwiper = () => {
     swiper = new Swiper('.swiper', {
 
@@ -40,8 +41,7 @@ const initializeSwiper = () => {
 
 }
 
-const spinner = document.getElementById('spinner')
-
+/*---- Function to fetch all  the products ----*/
 const getProducts = async () => {
     spinner.classList.remove('d-none')
     try {
@@ -63,7 +63,7 @@ const getProducts = async () => {
 
 }
 
-
+/*---- Function to show all  the products on page----*/
 const renderProducts = async () => {
     const products = await getProducts()
     console.log(products)
@@ -78,6 +78,7 @@ const renderProducts = async () => {
     toggleVisibility('#products-container')
 }
 
+/*---- Function to create the card template literal ----*/
 const createCard = (product) => {
     return `
         <div class="swiper-slide">
@@ -114,11 +115,11 @@ const createCard = (product) => {
         </div>
     `
 }
-
+/*---- Function to put the cards in html ----*/
 const appendCards = (htmlStr) => {
     document.querySelector('#products-container .swiper-wrapper').innerHTML = htmlStr
 }
-
+/*---- Event listner on the save button ----*/
 const addToSaved = (node) => {
     const icon = node.children[0]
     icon.classList.toggle('saved')
@@ -126,15 +127,16 @@ const addToSaved = (node) => {
     icon.classList.toggle('fa-solid')
     console.log(icon.classList)
 }
+/*---- Event listner on the cart button ----*/
 const addToCart = (node) => {
     node.classList.toggle('added')
     node.textContent = node.classList.contains('added') ? 'Added' : 'Add to Cart'
 }
-
+/*---- Function to change visibility of a container ----*/
 const toggleVisibility = (query) => {
     document.querySelector(query).classList.toggle('d-none')
 }
-
+/*---- Function to sho toast messages ----*/
 const showToast = (message, type) => {
     document.querySelector('.toast-container').innerHTML += `
         <div class="toast align-items-center text-bg-${type} border-0" role="alert" aria-live="assertive" aria-atomic="true">

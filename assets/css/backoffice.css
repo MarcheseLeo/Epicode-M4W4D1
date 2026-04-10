@@ -37,7 +37,6 @@
     color: var(--shop-green);
 }
 
-/* Stile Custom per gli elementi della lista */
 .product-list-item {
     border: 1px solid #dee2e6 !important;
     border-radius: 12px !important;
@@ -52,7 +51,6 @@
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.06);
 }
 
-/* Stile specifico per il bottone "Aggiungi Nuovo" a fine lista */
 .product-list-add-new {
     border: 2px dashed #ced4da;
     background-color: transparent;
@@ -67,12 +65,10 @@
     box-shadow: 0 6px 12px rgba(0, 77, 61, 0.2);
 }
 
-/* Forza il colore del testo e dell'icona all'interno del bottone in hover */
 .product-list-add-new:hover .text-shop-green {
     color: #ffffff !important;
 }
 
-/* Immagine Quadrata */
 .product-thumbnail {
     width: 70px;
     height: 70px;
@@ -82,7 +78,6 @@
     padding: 8px;
 }
 
-/* Tipografia */
 .product-name {
     font-weight: 600;
     color: #212529;
@@ -100,7 +95,6 @@
     color: #212529;
 }
 
-/* Pulsanti */
 .btn-edit {
     color: var(--edit-btn-color);
     border: 1px solid var(--edit-btn-color);

@@ -3,6 +3,7 @@ const id = params.get('id')
 
 const spinner = document.getElementById('spinner')
 
+/*---- Function to fetch single product ----*/
 const getProduct = async () => {
     spinner.classList.remove('d-none')
     try {
@@ -22,12 +23,14 @@ const getProduct = async () => {
     }
 }
 
+/*---- Function to show the product on page----*/
 const renderProduct = async() =>{
     const product = await getProduct()
     appendProduct(generateProductCard(product))
     console.log(product)
 }
 
+/*---- Function to create the card template literal ----*/
 const generateProductCard = (product) =>{
     return `
         <div class="row gx-5 align-items-center">
@@ -78,9 +81,8 @@ const generateProductCard = (product) =>{
     `
 }
 
-
-
-renderProduct()
+/*---- Function to put the card in html ----*/
 const appendProduct = (literal) => {
     document.getElementById('product-container').innerHTML = literal
 }
+renderProduct()

@@ -3,6 +3,9 @@ const id = params.get('id')
 
 const spinner = document.getElementById('spinner')
 
+const form = document.querySelector('main form')
+
+/*---- Function to fetch single product ----*/
 const getProduct = async () => {
     try {
         const response = await fetch(`https://striveschool-api.herokuapp.com/api/product/${id}`, {
@@ -19,6 +22,7 @@ const getProduct = async () => {
     }
 }
 
+/*---- Function to fetch all the products ----*/
 const getProducts = async () => {
     spinner.classList.remove('d-none')
     try {
@@ -39,6 +43,7 @@ const getProducts = async () => {
     }
 }
 
+/*---- Function to post new product ----*/
 const postProduct = async (product) => {
     try {
         const response = await fetch('https://striveschool-api.herokuapp.com/api/product/', {
@@ -59,7 +64,7 @@ const postProduct = async (product) => {
     }
 }
 
-
+/*---- Function to update single product ----*/
 const updateProduct = async (product) => {
     spinner.classList.remove('d-none')
     try {
@@ -83,6 +88,7 @@ const updateProduct = async (product) => {
     }
 }
 
+/*---- Function to delete single product ----*/
 const deleteProduct = async (product) => {
     spinner.classList.remove('d-none')
     try {
@@ -110,7 +116,7 @@ const deleteProduct = async (product) => {
     }
 }
 
-
+/*---- Function to show the page ----*/
 const showPage = async () => {
     if (id != 'add') {
         Promise.all([getProduct(), getProducts()]).then(res => {
@@ -134,6 +140,7 @@ const showPage = async () => {
 
 }
 
+/*---- Function to create the form with the product details ----*/
 const createForm = (product) => {
     return `
         <div class="row g-3">
@@ -203,6 +210,7 @@ const createForm = (product) => {
     `
 }
 
+/*---- Function to create the form with empty inputs ----*/
 const createEmptyForm = () => {
     return `
         <div class="row g-3">
@@ -264,9 +272,12 @@ const createEmptyForm = () => {
     `
 }
 
+/*---- Function to show the form in html ----*/
 const showForm = (literal) => {
     form.innerHTML = literal
 }
+
+/*---- Event listner on "Salva modifiche" and "Aggiuingi" buttons, to check the input validity and create/update the product----*/
 const checkForm = async () => {
     const name = form.querySelector('#productName').value
     const brand = form.querySelector('#productBrand').value
@@ -312,6 +323,8 @@ const checkForm = async () => {
     }
 
 }
+
+/*---- Function to create the products list template literal ----*/
 const createList = (products) => {
     return `
         ${products.reduce((acc, product) => {
@@ -328,6 +341,7 @@ const createList = (products) => {
     `
 }
 
+/*---- Function to create the single product list item template literal ----*/
 const createListItem = (product) => {
     return `
     <div class="list-group-item product-list-item d-flex align-items-center p-3">
@@ -349,10 +363,12 @@ const createListItem = (product) => {
     `
 }
 
+/*---- Function to show the list in html ----*/
 const appendList = (literal) => {
     document.getElementById('product-list').innerHTML = literal
 }
 
+/*---- Funtion to show toast messages ----*/
 const showToast = (message, type) => {
     document.querySelector('.toast-container').innerHTML += `
         <div class="toast align-items-center text-bg-${type} border-0" role="alert" aria-live="assertive" aria-atomic="true">
@@ -371,11 +387,12 @@ const showToast = (message, type) => {
     })
     toastList.forEach(toast => toast.show())
 }
-
+/*---- Funtion to change visibility of a container ----*/
 const toggleVisibility = (query) => {
     document.querySelector(query).classList.toggle('d-none')
 }
-const form = document.querySelector('main form')
+
+/*---- Event Listner on the form submit event, to prevent the default action and the propagation ----*/
 form.addEventListener('submit', (e) => {
     e.preventDefault()
     e.stopPropagation()
