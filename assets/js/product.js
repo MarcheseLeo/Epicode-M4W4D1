@@ -50,7 +50,7 @@ const generateProductCard = (product) =>{
                     </div>
 
                     <h1 class="product-title mb-1">${product.name}</h1>
-                    <p class="text-muted fs-5 mb-3">A simple subtutle description</p>
+                    <p class="text-muted fs-5 mb-3">A simple subtitle description</p>
 
                     <div class="d-flex align-items-center mb-4">
                         <div class="star-rating me-2">
