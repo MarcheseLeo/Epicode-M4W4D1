@@ -13,6 +13,8 @@
     --swiper-navigation-color:  #0b4d2a;
     --swiper-navigation-size: 30px;
     --heart-color: red;
+    --edit-btn-color:rgb(75, 33, 226);
+    --delete-btn-color: rgb(179, 44, 44);
 }
 
 * {

@@ -1,8 +1,4 @@
 /* Variables */
-:root{
-    --edit-btn-color:rgb(75, 33, 226);
-}
-
 .main-image-container {
     background-color: var(--bg-gray);
     border-radius: 16px;
@@ -64,3 +60,4 @@
     text-align: center;
     border: 1px solid #ced4da;
 }
+

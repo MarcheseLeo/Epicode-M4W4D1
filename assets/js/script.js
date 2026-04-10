@@ -52,54 +52,17 @@ const getProducts = async () => {
         })
         if (!response.ok)
             throw new Error(`Response status: ${response.status}`)
+        await new Promise(resolve => setTimeout(resolve, 1000))
         return await response.json()
     } catch (e) {
         console.error(e)
         showToast(e, "danger")
     } finally {
-
         spinner.classList.add('d-none')
-
     }
 
 }
 
-
-const postProduct = async (product) => {
-    try {
-        const response = await fetch('https://striveschool-api.herokuapp.com/api/product/', {
-            method: "POST",
-            headers: {
-                "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OWQ2NjE3MjUzMjU4OTAwMTU2MjAyOWEiLCJpYXQiOjE3NzU2NTczMzAsImV4cCI6MTc3Njg2NjkzMH0.x-mlS1DWyjCTZ_w0ag9o0wRFK4jK4D0tVzc6sMhXA0Q",
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(product)
-        })
-        if (!response.ok)
-            throw new Error(`Response status: ${response.status} - ${response.statusText}`)
-        return await response.json()
-    } catch (e) {
-        console.error(e)
-    }
-}
-
-const updateProduct = async (product, id) => {
-    try {
-        const response = await fetch(`https://striveschool-api.herokuapp.com/api/product/${id}`, {
-            method: "PUT",
-            headers: {
-                "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OWQ2NjE3MjUzMjU4OTAwMTU2MjAyOWEiLCJpYXQiOjE3NzU2NTczMzAsImV4cCI6MTc3Njg2NjkzMH0.x-mlS1DWyjCTZ_w0ag9o0wRFK4jK4D0tVzc6sMhXA0Q",
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(product)
-        })
-        if (!response.ok)
-            throw new Error(`Response status: ${response.statusText}`)
-        return await response.json()
-    } catch (e) {
-        console.error(e)
-    }
-}
 
 const renderProducts = async () => {
     const products = await getProducts()
