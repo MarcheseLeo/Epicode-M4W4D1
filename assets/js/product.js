@@ -1,8 +1,10 @@
 const params = new URLSearchParams(window.location.search)
 const id = params.get('id')
-console.log(id)
+
+const spinner = document.getElementById('spinner')
 
 const getProduct = async () => {
+    spinner.classList.remove('d-none')
     try {
         const response = await fetch(`https://striveschool-api.herokuapp.com/api/product/${id}`, {
             headers: {
@@ -11,9 +13,12 @@ const getProduct = async () => {
         })
         if (!response.ok)
             throw new Error(`Response status: ${response.status}`)
+        await new Promise(resolve => setTimeout(resolve, 600))
         return await response.json()
     } catch (e) {
         console.error(e)
+    } finally {
+        spinner.classList.add('d-none')
     }
 }
 
@@ -72,6 +77,9 @@ const generateProductCard = (product) =>{
             </div>
     `
 }
+
+
+
 renderProduct()
 const appendProduct = (literal) => {
     document.getElementById('product-container').innerHTML = literal
