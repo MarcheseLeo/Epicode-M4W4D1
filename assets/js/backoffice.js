@@ -397,4 +397,14 @@ form.addEventListener('submit', (e) => {
     e.preventDefault()
     e.stopPropagation()
 })
+
+/*---- Event listner on "Vai giu" button ----*/
+const goDown = () => {
+    window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: 'smooth'
+    });
+}
+
+
 showPage()
