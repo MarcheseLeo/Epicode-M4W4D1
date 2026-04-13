@@ -327,10 +327,7 @@ const checkForm = async () => {
 /*---- Function to create the products list template literal ----*/
 const createList = (products) => {
     return `
-        ${products.reduce((acc, product) => {
-        acc += createListItem(product)
-        return acc
-    }, '')}        
+        ${products.map(product=>createListItem(product)).join(' ')}        
 
         <a href="./backoffice.html?id=add"
             class="list-group-item product-list-item product-list-add-new d-flex justify-content-center align-items-center p-4 text-decoration-none">
