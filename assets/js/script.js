@@ -68,11 +68,8 @@ const renderProducts = async () => {
     const products = await getProducts()
     console.log(products)
     const random = products.sort(() => Math.random() - 0.5)
-    const str = products.reduce((acc, product) => {
-        acc += createCard(product)
-        return acc
-    }, ``)
-
+    const str = random.map(product => createCard(product)).join(' ')
+    console.log(str)
     appendCards(str)
     initializeSwiper()
     toggleVisibility('#products-container')
